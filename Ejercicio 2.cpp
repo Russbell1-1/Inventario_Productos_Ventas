@@ -52,18 +52,34 @@ void actualizarProducto(Producto productos[],int n){
 	}
 }
 
+void eliminarProducto(Producto productos[],int &n){
+	string nombre;
+	cout<<"Nombre del producto a eliminar: ";
+	getline(cin>>ws,nombre);
+	for(int i=0;i<n;i++){
+		if(productos[i].nombre==nombre){
+			for(int j=i;j<n-1;j++){
+				productos[j]=productos[j+1];
+			}
+			n--;
+			return;
+		}
+	}
+}
+
 int main(){
 	Producto productos[100];
 	int n=0;
 	char op;
 	do{
-		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nD. Actualizar producto\nOpcion: ";
+		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nD. Actualizar producto\nE. Eliminar producto\nOpcion: ";
 		cin>>op;
 		switch(op){
 			case 'A':registrarProducto(productos,n);break;
 			case 'B':listarProductos(productos,n);break;
 			case 'C':buscarProducto(productos,n);break;
 			case 'D':actualizarProducto(productos,n);break;
+			case 'E':eliminarProducto(productos,n);break;
 		}
 	}while(true);
 	return 0;
