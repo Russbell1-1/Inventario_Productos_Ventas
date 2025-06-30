@@ -116,7 +116,7 @@ int main(){
 	int n=0,nv=0;
 	char op;
 	do{
-		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nD. Actualizar producto\nE. Eliminar producto\nF. Registrar venta\nG. Listar ventas\nH. Total ventas\nOpcion: ";
+		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nD. Actualizar producto\nE. Eliminar producto\nF. Registrar venta\nG. Listar ventas\nH. Total ventas\nS. Salir\nOpcion: ";
 		cin>>op;
 		switch(op){
 			case 'A':registrarProducto(productos,n);break;
@@ -128,6 +128,6 @@ int main(){
 			case 'G':listarVentas(ventas,nv);break;
 			case 'H':totalVentas(ventas,nv);break;
 		}
-	}while(true);
+	}while(op!='S');
 	return 0;
 }
