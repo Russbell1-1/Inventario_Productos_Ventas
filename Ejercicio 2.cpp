@@ -24,16 +24,30 @@ void listarProductos(Producto productos[],int n){
 	}
 }
 
+void buscarProducto(Producto productos[],int n){
+	string nombre;
+	cout<<"Nombre a buscar: ";
+	getline(cin>>ws,nombre);
+	for(int i=0;i<n;i++){
+		if(productos[i].nombre==nombre){
+			cout<<"Nombre: "<<productos[i].nombre<<endl;
+			cout<<"Precio: "<<productos[i].precio<<endl;
+			return;
+		}
+	}
+}
+
 int main(){
 	Producto productos[100];
 	int n=0;
 	char op;
 	do{
-		cout<<"A. Registrar producto\nB. Listar productos\nOpcion: ";
+		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nOpcion: ";
 		cin>>op;
 		switch(op){
 			case 'A':registrarProducto(productos,n);break;
 			case 'B':listarProductos(productos,n);break;
+			case 'C':buscarProducto(productos,n);break;
 		}
 	}while(true);
 	return 0;
