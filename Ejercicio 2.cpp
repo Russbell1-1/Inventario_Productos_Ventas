@@ -95,13 +95,22 @@ void registrarVenta(Venta ventas[],int &nv,Producto productos[],int np){
 	}
 }
 
+void listarVentas(Venta ventas[],int nv){
+	for(int i=0;i<nv;i++){
+		cout<<"ID Venta: "<<ventas[i].idVenta<<endl;
+		cout<<"Producto: "<<ventas[i].producto<<endl;
+		cout<<"Cantidad: "<<ventas[i].cantidad<<endl;
+		cout<<"Precio total: "<<ventas[i].precioTotal<<endl<<endl;
+	}
+}
+
 int main(){
 	Producto productos[100];
 	Venta ventas[100];
 	int n=0,nv=0;
 	char op;
 	do{
-		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nD. Actualizar producto\nE. Eliminar producto\nF. Registrar venta\nOpcion: ";
+		cout<<"A. Registrar producto\nB. Listar productos\nC. Buscar producto\nD. Actualizar producto\nE. Eliminar producto\nF. Registrar venta\nG. Listar ventas\nOpcion: ";
 		cin>>op;
 		switch(op){
 			case 'A':registrarProducto(productos,n);break;
@@ -110,6 +119,7 @@ int main(){
 			case 'D':actualizarProducto(productos,n);break;
 			case 'E':eliminarProducto(productos,n);break;
 			case 'F':registrarVenta(ventas,nv,productos,n);break;
+			case 'G':listarVentas(ventas,nv);break;
 		}
 	}while(true);
 	return 0;
